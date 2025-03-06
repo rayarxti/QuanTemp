@@ -66,9 +66,10 @@ for feature, label_idx in zip(test_features, test_labels_idx):
     pred = response.answer
     print(pred)
     test_preds.append(pred)
+    # pred = "Conflict"
     try: 
         pred_idx = LE.transform([pred])
-    except KeyError as e:
+    except ValueError as e:
         pred_idx = 3
     print(pred_idx)
     counts[label_idx][pred_idx] += 1
